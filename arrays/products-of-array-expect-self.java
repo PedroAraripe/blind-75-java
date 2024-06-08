@@ -1,5 +1,3 @@
-package arrays;
-
 class Solution {
   public int[] productExceptSelf(int[] nums) {
       int total = 1;
