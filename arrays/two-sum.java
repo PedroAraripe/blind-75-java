@@ -2,24 +2,16 @@ import java.util.HashMap;
 
 class Solution {
     public int[] twoSum(int[] nums, int target) {
-      HashMap<Integer, Integer> visitedNums = new HashMap<>();
-
-      int[] answer = new int[2];
-
+      HashMap<Integer, Integer> hashVisited = new HashMap<>();
+      
       for(int i = 0; i < nums.length; i++) {
-          Integer num = nums[i];
-          int complementary = target - num;
-
-          if(visitedNums.containsKey(complementary)) {
-            answer[0] = visitedNums.get(complementary);
-            answer[1] = i;
-              
-            return answer;
-          }
-
-          visitedNums.put(num, i);
+        if(hashVisited.containsKey(target - nums[i])) {
+          return new int[]{hashVisited.get(target - nums[i]), i};
+        } else {
+          hashVisited.put(nums[i], i);
+        }
       }
 
-      return answer;
+      return new int[2];
     }
-} 
+}
